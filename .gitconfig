@@ -1,6 +1,6 @@
 [user]
-    name = Allen, Timothy
-    email = tallen@wharton.upenn.edu
+    name = Gatens, Jeremy
+    email = jgatens@wharton.upenn.edu
 [color]
     branch = auto
     diff = auto
@@ -27,3 +27,4 @@
     st = status
     unstage = reset HEAD --
     last = log -1 HEAD
+    newpush = push origin HEAD
