@@ -36,21 +36,21 @@ shopt -s checkwinsize
 
 # Useful aliases
 alias menu='cat /etc/motd'
-alias ccat='pygmentize -O style=monokai -f terminal -g'
+alias ccat='pygmentize -O style=monokai,linenos=1 -f terminal -g'
 
 # Dev environment shortcuts
 devmanage() {
     ENV=dev python manage.py $*
 }
 alias dema=devmanage
-alias dese='ENVIRONMENT=dev python manage.py runserver 0.0.0.0:8000'
+alias dese='ENV=dev python manage.py runserver 0.0.0.0:8000'
 
 # Local environment shortcuts
 localmanage() {
     ENV=local python manage.py $*
 }
 alias loma=localmanage
-alias lose='ENVIRONMENT=local python manage.py runserver 0:8000'
+alias lose='ENV=local python manage.py runserver 0:8000'
 
 # Production environment shortcuts
 prodmanage() {
@@ -61,8 +61,10 @@ prodmanage() {
     fi
 }
 alias prma=prodmanage
-alias prse='ENVIRONMENT=prod python manage.py runserver 0.0.0.0:8000'
+alias prse='ENV=prod python manage.py runserver 0.0.0.0:8000'
 
 alias gitmerged='git branch --merged | egrep -v "(^\*|master|develop|stage)"'
+alias gitmerged_delete='git branch --merged | egrep -v "(^\*|master|develop|stage)" | xargs git branch -d && git branch -r --merged | grep -v "(^\*|master|develop|stage)" | sed "s/origin\///" | xargs -n 1 git push --delete origin'
+alias gitprunemerged="git branch -r --merged | grep -v 'master\|develop' | sed 's/origin\///' | xargs -n 1 git push --delete origin && git remote prune origin"
 
 alias jekyllserver='bundle exec jekyll serve --host=0.0.0.0 --watch --port=8080'
