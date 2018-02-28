@@ -13,7 +13,7 @@ export EDITOR="$VISUAL"
 export PATH=~/npm-global/bin:/usr/local/bin:/usr/pgsql-9.5/bin:$PATH
 
 # NPM global directory under home
-npm config set prefix '~/npm-global'
+#npm config set prefix '~/npm-global'
 
 # Enable color support of ls
 if [ "$TERM" != "dumb" ]; then
@@ -25,7 +25,7 @@ fi
 alias sharedir="python -m http.server 8000"
 
 # virtualenvwrapper Setup
-export VIRTUALENV_PYTHON=/usr/bin/python3.5
+export VIRTUALENV_PYTHON=/usr/bin/python3.6
 source /usr/bin/virtualenvwrapper.sh
 
 # git tab completion
